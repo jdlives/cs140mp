@@ -1,4 +1,3 @@
-package mp140;
 import java.util.*;
 
 public class showGame extends GameData {

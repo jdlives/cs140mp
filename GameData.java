@@ -1,9 +1,9 @@
-package mp140;
-public class GameData extends Thread{
-    public static String[] currentDisplay = {"","","","","22"};
-    public static int currentPosition = {{0,0,0,0,0}, /*x-coordinate*/
-                                         {1,2,3,4,5,}; /*y-coordinate*/
-    public static final String[] systemWords = {"hello"
+// package mp140;
+class GameData extends Thread{
+    static String[] currentDisplay = {"yo","one","two","three","22"};
+    static int[][] currentPosition = {{0,1,2,2,4}, /*y-coordinate*/
+                                         {0,1,2,3,4,}}; /*x-coordinate*/
+    protected final String[] systemWords = {"hello"
                                           ,"hey"
                                           ,"noscrub"
                                           ,"ivy"
