@@ -1,4 +1,6 @@
-public class GameData {
+import java.util.*;
+
+class GameData extends Thread{
     public static String[] wordDisplay = {"","","","","22"};
     public static String[] systemWords = {"hello"
                                           ,"hey"
@@ -22,24 +24,32 @@ public class GameData {
 
 
 }
-public class showGame extends Game implements Thread {
-      public static String[] screenWords;
+public class showGame extends GameData {
+      
 
       public void run(){
 
+            ArrayList <String> screenWords = new ArrayList <String>();
+
             GameData data = new GameData();
             int index = 0;
-            string[] wordRepo = data.systemWords;
-            while (wordRepo[index] != NULL){
-                  screenWords[index] = wordRepo[index];
-                  println("\n\n%c\n\n",screenWords[index]);
+            int indexRemove = 0;
+            String[] wordRepo = data.systemWords;
+            while (wordRepo[index] != null){
+                  int bounds = screenWords.size();
+                  screenWords.add(wordRepo[index]);
+                  System.out.print("\n"+screenWords+"\n\n");
+                  
+                  if (bounds>3){
+                        screenWords.remove(wordRepo[indexRemove]);
+                        indexRemove++;
+                  }
                   index+=1;
             }
       }
 
       public static void main(String args[]) throws InterruptedException {
             (new showGame()).start();
-            Thread.sleep(1000);
 
       }
 }
