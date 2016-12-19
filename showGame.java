@@ -25,7 +25,7 @@ class GameData extends Thread{
 
 }
 public class showGame extends GameData {
-      
+
 
       public void run(){
 
@@ -35,10 +35,12 @@ public class showGame extends GameData {
             int index = 0;
             int indexRemove = 0;
             String[] wordRepo = data.systemWords;
+           
             while (wordRepo[index] != null){
                   int bounds = screenWords.size();
                   screenWords.add(wordRepo[index]);
-                  System.out.print("\n"+screenWords+"\n\n");
+                  String wordRepo2 = screenWords.toString().replace("[","").replace("]","").replace(","," ");
+                  System.out.print("\n"+wordRepo2+"\n\n");
                   
                   if (bounds>3){
                         screenWords.remove(wordRepo[indexRemove]);
@@ -49,6 +51,7 @@ public class showGame extends GameData {
       }
 
       public static void main(String args[]) throws InterruptedException {
+     
             (new showGame()).start();
 
       }
