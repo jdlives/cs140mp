@@ -40,7 +40,7 @@ public class DisplayThread extends GameData{
     	System.out.flush();
     	printArray(currentDisplay);
         try {
-            Thread.sleep(1000);//1000 milliseconds is one second.
+            Thread.sleep(3000);//1000 milliseconds is one second.
         }catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }

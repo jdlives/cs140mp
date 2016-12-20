@@ -3,4 +3,7 @@ class WordGenerator extends GameData{
     public void run(){
 
     }
+    public void generate(){
+        
+    }
 }

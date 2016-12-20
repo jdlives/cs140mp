@@ -1,3 +1,5 @@
+import java.util.Scanner;
+import java.io.Console;
 public class InputThread extends GameData{
     Scanner in = new Scanner(System.in);
     int count = 1;
