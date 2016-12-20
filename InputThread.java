@@ -6,12 +6,12 @@ public class InputThread extends GameData{
     Console console = System.console();
     @Override
     public void run(){
-    while(true){
-        char userInput[] = console.readPassword(""); //mask user input in terminal
-        // userInput = in.nextLine();
-        // System.out.println("Hey: " + userInput);
-        System.out.print(String.format("\033[%dA",count)); // Move up
-        System.out.print("\033[2K"); // Erase line content
-    }
+      while(true){
+          // char[] userInput = console.readPassword(""); //mask user input in terminal
+          String stringInput = in.nextLine();
+          // System.out.println("Typed: " + stringInput);
+          // System.out.print(String.format("\033[%dA",count)); // Move up
+          // System.out.print("\033[2K"); // Erase line content
+      }
     }
 }
