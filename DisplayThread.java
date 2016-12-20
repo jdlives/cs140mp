@@ -1,59 +1,50 @@
 // package mp140;
 public class DisplayThread extends GameData{
-    public static void main (String[] args){
-    	DisplayThread test = new DisplayThread();
-    	test.start();
-	}
+    public static void main(String[] args) {
+        (new DisplayThread()).start(); //to call and start new thread DisplayThread
+    }
     public void run(){
-        printSet();
+        while(shiftDown()){
+            printArray(currentDisplay);
+        }
+
+
     }
     public void printArray(String input[][]){
+        System.out.println("=====================================================================================");
 		for(int row = 0; row < input.length ; row++){
 			for(int column = 0; column < input[row].length ; column++){
 				System.out.print(input[row][column] + "   ");
 			}
 			System.out.println();
 		}
+        System.out.println("=====================================================================================");
 	}
-    public void printSet(){
-		String temp[][]={	{"      ","      ","      ","      ","      "},
-					{"      ","      ","      ","      ","      "},
-					{"      ","      ","      ","      ","      "},
-					{"      ","      ","      ","      ","      "},
-					{"      ","      ","      ","      ","      "}
-				};
-		//place words in proper position
-		for (int i=0; i<currentDisplay.length; i++){
-			temp[currentPosition[0][i]][currentPosition[1][i]] = currentDisplay[i];
-
-		}
-		System.out.print("\033[H\033[2J");  //clear system first
-		System.out.flush();
-		printArray(temp);
+    public boolean shiftDown(){
+        // check if last row is empty
+        for(int column=0;column<currentDisplay[currentDisplay.length-1].length;column++){
+            if(currentDisplay[currentDisplay.length-1][column]!="      "){
+                System.out.println("FALSE");
+                return false;
+            }
+        }
+        // move the above row to the one below it, start from the second the last row pataas
+        System.out.print(currentDisplay.length);
+        for (int height=currentDisplay.length-2; height>-1;height-- ) {
+            currentDisplay[height+1]=currentDisplay[height];
+        }
+        String[]temp={"      ","      ","      ","      ","      ","      ","      ","      ","      ","      "};
+        currentDisplay[0]=temp;
+        // clear system
+    	System.out.print("\033[H\033[2J");
+    	System.out.flush();
+    	printArray(currentDisplay);
+        try {
+            Thread.sleep(1000);//1000 milliseconds is one second.
+        }catch(InterruptedException ex) {
+            Thread.currentThread().interrupt();
+        }
+        return true;
 	}
 
 }
-// class GameData extends Thread{
-//     static String[] currentDisplay = {"yo","one","two","three","22"};
-//     static int[][] currentPosition = {{0,1,2,2,4}, /*y-coordinate*/
-//                                          {0,1,2,3,4,}}; /*x-coordinate*/
-//     protected final String[] systemWords = {"hello"
-//                                           ,"hey"
-//                                           ,"noscrub"
-//                                           ,"ivy"
-//                                           ,"daniel"
-//                                           ,"laborada"
-//                                           ,"jenn"
-//                                           ,"codia"
-//                                           ,"trish"
-//                                           ,"evangelista"
-//                                           ,"buy"
-//                                           ,"my"
-//                                           ,"ps4"
-//                                           ,"maam"
-//                                           ,"ivy"
-//                                           ,"motherfather"
-//                                           ,"merry"
-//                                           ,"christmas"
-//                                           ,"deadline"};
-// }

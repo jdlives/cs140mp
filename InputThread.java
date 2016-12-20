@@ -1,13 +1,15 @@
 public class InputThread extends GameData{
-    public void run() {
-        final Scanner in = new Scanner(System.in);
-        while(in.hasNext()) {
-            final String line = in.nextLine();
-            System.out.println("Input line: " + line);
-            if ("end".equalsIgnoreCase(line)) {
-                System.out.println("Ending one thread");
-                break;
-            }
-        }
+    Scanner in = new Scanner(System.in);
+    int count = 1;
+    Console console = System.console();
+    @Override
+    public void run(){
+    while(true){
+        char userInput[] = console.readPassword(""); //mask user input in terminal
+        // userInput = in.nextLine();
+        // System.out.println("Hey: " + userInput);
+        System.out.print(String.format("\033[%dA",count)); // Move up
+        System.out.print("\033[2K"); // Erase line content
+    }
     }
 }
