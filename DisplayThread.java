@@ -19,14 +19,14 @@ public class DisplayThread extends GameData{
         System.out.print("POINTS --> " );
         System.out.print(points);
         System.out.println();
-        System.out.println("=====================================================================================");
+        System.out.println("============================================================================================");
 		for(int row = 0; row < input.length ; row++){
 			for(int column = 0; column < input[row].length ; column++){
 				System.out.print(input[row][column] + "   ");
 			}
 			System.out.println();
 		}
-        System.out.println("=====================================================================================");
+        System.out.println("============================================================================================");
 	}
     public boolean shiftDown(){
         // check if last row is empty
@@ -49,7 +49,7 @@ public class DisplayThread extends GameData{
         printArray(currentDisplay);
         }
         try {
-            Thread.sleep(3000);//1000 milliseconds is one second.
+            Thread.sleep(1300);//1000 milliseconds is one second.
         }catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }

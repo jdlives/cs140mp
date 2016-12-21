@@ -22,14 +22,14 @@ public class InputThread extends GameData{
         System.out.print("POINTS --> " );
         System.out.print(points);
         System.out.println();
-        System.out.println("=====================================================================================");
+        System.out.println("============================================================================================");
 		for(int row = 0; row < input.length ; row++){
 			for(int column = 0; column < input[row].length ; column++){
 				System.out.print(input[row][column] + "   ");
 			}
 			System.out.println();
 		}
-        System.out.println("=====================================================================================");
+        System.out.println("============================================================================================");
 	}
     public void getInput(){
 
