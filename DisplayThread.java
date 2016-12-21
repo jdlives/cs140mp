@@ -4,9 +4,7 @@ import java.util.*;
 public class DisplayThread extends GameData{
     public void run(){
         synchronized(DisplayLock){
-            while(Game){
-                Game=shiftDown();
-            }
+            while(shiftDown()){}
         }
 
     }
@@ -34,6 +32,7 @@ public class DisplayThread extends GameData{
         for(int column=0;column<currentDisplay[currentDisplay.length-1].length;column++){
             if(currentDisplay[currentDisplay.length-1][column]!="      "){
                 System.out.println("GAME OVER - you suck");
+                this.Game=false;
                 return false;
             }
         }
@@ -49,7 +48,7 @@ public class DisplayThread extends GameData{
         printArray(currentDisplay);
         }
         try {
-            Thread.sleep(1300);//1000 milliseconds is one second.
+            Thread.sleep(1000);//1000 milliseconds is one second.
         }catch(InterruptedException ex) {
             Thread.currentThread().interrupt();
         }

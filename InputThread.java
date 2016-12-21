@@ -8,9 +8,10 @@ public class InputThread extends GameData{
     @Override
     public void run(){
         synchronized(InputLock){
-            while(Game){
-                getInput();
+            while(getInput()){
+
             }
+            System.out.print("end input2");
         }
     }
     public void printArray(String input[][]){
@@ -31,7 +32,7 @@ public class InputThread extends GameData{
 		}
         System.out.println("============================================================================================");
 	}
-    public void getInput(){
+    public boolean getInput(){
 
         // nacheck ko na ung currentDisplay static naman siya so naeedit talaga natry ko na
         // problema lang di niya tinatanggal di ko alam bakit kasi try mo mag write kay currentDisplay gumagana naman
@@ -51,6 +52,7 @@ public class InputThread extends GameData{
             printArray(currentDisplay);
 
             }
+            return this.Game;
 
 
 
