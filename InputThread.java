@@ -37,22 +37,22 @@ public class InputThread extends GameData{
         // nacheck ko na ung currentDisplay static naman siya so naeedit talaga natry ko na
         // problema lang di niya tinatanggal di ko alam bakit kasi try mo mag write kay currentDisplay gumagana naman
 
-
-            input = in.nextLine();
-            currentDisplay[0][0]=input;
-            synchronized(lock){
-                for(int l=currentDisplay.length-1; l>=0;l--){
-                    for(int w =currentDisplay[l].length-1;w>=0;w--){
-                        if(input.equals(currentDisplay[l][w])){
-                            currentDisplay[l][w]="      ";
-                            points=points+1;
+                  char userInput[] = console.readPassword(""); //FOR MASKING user input in terminal
+                  String input = new String(userInput); //FOR MASKING
+                    currentDisplay[0][0]=input;
+                    synchronized(lock){
+                        for(int l=currentDisplay.length-1; l>=0;l--){
+                            for(int w =currentDisplay[l].length-1;w>=0;w--){
+                                if(input.equals(currentDisplay[l][w])){
+                                    currentDisplay[l][w]="      ";
+                                    points=points+1;
+                                }
+                            }
                         }
-                    }
-                }
-            printArray(currentDisplay);
+                    printArray(currentDisplay);
 
-            }
-            return this.Game;
+                    }
+            return Game;
 
 
 

@@ -1,6 +1,6 @@
 // package mp140;
 class GameData extends Thread{
-    static volatile boolean Game = true;
+    static boolean Game = true;
     static int level=0;
     static int points=0;
     static final Object lock = new Object();
