@@ -6,6 +6,8 @@ public class DisplayThread extends GameData{
         }
     }
     public void printArray(String input[][]){
+        System.out.print("\033[H\033[2J");
+    	System.out.flush();
         System.out.println("=====================================================================================");
 		for(int row = 0; row < input.length ; row++){
 			for(int column = 0; column < input[row].length ; column++){
@@ -17,25 +19,24 @@ public class DisplayThread extends GameData{
 	}
     public boolean shiftDown(){
         // check if last row is empty
-        String[][] avatar=super.returncD();
-        for(int column=0;column<avatar[avatar.length-1].length;column++){
-            if(avatar[avatar.length-1][column]!="      "){
+        synchronized (lock) {
+        for(int column=0;column<currentDisplay[currentDisplay.length-1].length;column++){
+            if(currentDisplay[currentDisplay.length-1][column]!="      "){
                 System.out.println("FALSE");
                 return false;
             }
         }
         // move the above row to the one below it, start from the second the last row pataas
-        System.out.print(avatar.length);
-        for (int height=avatar.length-2; height>-1;height-- ) {
-            avatar[height+1]=avatar[height];
+        System.out.print(currentDisplay.length);
+        for (int height=currentDisplay.length-2; height>-1;height-- ) {
+            currentDisplay[height+1]=currentDisplay[height];
         }
         String[]temp={"      ","      ","      ","      ","      ","      ","      ","      ","      ","      "};
-        avatar[0]=temp;
+        currentDisplay[0]=temp;
         // clear system
-    	System.out.print("\033[H\033[2J");
-    	System.out.flush();
-        modcD(avatar);
-        printArray(returncD());
+
+        printArray(currentDisplay);
+        }
         try {
             Thread.sleep(3000);//1000 milliseconds is one second.
         }catch(InterruptedException ex) {
