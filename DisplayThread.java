@@ -70,7 +70,7 @@ public class DisplayThread extends GameData{
 
     Collections.shuffle(indexDisplay); //to randomize words without repeating
 
-    for (int j=0; j<3; j++){
+    for (int j=0; j<level; j++){
       index = indexDisplay.get(j);
       stringDisplay[index] = wordsList.get(j).toString();  //convert list elements to string to enable copying
     }

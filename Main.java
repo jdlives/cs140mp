@@ -6,7 +6,7 @@ public class Main extends GameData{
              (new Main()).start(); //to call and start new thread InputThread
              (new InputThread()).start(); //to call and start new thread InputThread
              (new DisplayThread()).start(); //to call and start new thread DisplayThread
-             
+
 
 
 
@@ -20,9 +20,6 @@ public class Main extends GameData{
                 level=in.nextInt();
             }
         }
-
-
-
     }
 
 
