@@ -16,7 +16,7 @@ public class Main extends GameData{
         synchronized (InputLock){
             synchronized(DisplayLock){
                 System.out.println("How good are you? [1-5]");
-                System.out.print("Answer");
+                System.out.print("Answer: ");
                 level=in.nextInt();
             }
         }
