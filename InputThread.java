@@ -23,7 +23,8 @@ public class InputThread extends GameData{
 	}
     public void getInput(){
 
-
+        // nacheck ko na ung currentDisplay static naman siya so naeedit talaga natry ko na
+        // problema lang di niya tinatanggal di ko alam bakit kasi try mo mag write kay currentDisplay gumagana naman
 
         while(true){
 
